@@ -5,6 +5,8 @@ env:
   CI_SNAPSHOT_RELEASE: +publishSigned
   HUGO_VERSION: 0.26
   SCALA_VERSION: 2.12.10
+  GITHUB_ACTOR: precog-bot
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   validate:
     name: Scala ${{ matrix.scala }}, Java ${{ matrix.java }}
@@ -46,7 +48,7 @@ jobs:
         run: sbt ++$SCALA_VERSION doc
   scalafix:
     name: Scalafix
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: olafurpg/setup-scala@v5
@@ -65,7 +67,7 @@ jobs:
         run: sbt ++$SCALA_VERSION test
   project-site:
     name: Project Site
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: olafurpg/setup-scala@v5

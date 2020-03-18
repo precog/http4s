@@ -3,9 +3,10 @@ import org.http4s.build.Http4sPlugin._
 import scala.xml.transform.{RewriteRule, RuleTransformer}
 
 // Global settings
-ThisBuild / organization := "org.http4s"
 ThisBuild / scalaVersion := scala_213
 Global / cancelable := true
+
+ThisBuild / githubRepository := "http4s"
 
 lazy val modules: List[ProjectReference] = List(
   core,
