@@ -12,6 +12,7 @@ env:
   SCALA_VERSION: 2.12.10
   GITHUB_ACTOR: precog-bot
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ENCRYPTION_PASSWORD: ${{ secrets.ENCRYPTION_PASSWORD }}
 jobs:
   release:
     name: Release
