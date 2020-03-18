@@ -73,7 +73,7 @@ lazy val core = libraryProject("core")
       scalaVersion,
       BuildInfoKey.map(http4sApiVersion) { case (_, v) => "apiVersion" -> v }
     ),
-    buildInfoPackage := organization.value,
+    buildInfoPackage := "org.http4s",
     resolvers += "Sonatype OSS Snapshots".at(
       "https://oss.sonatype.org/content/repositories/snapshots"),
     libraryDependencies ++= Seq(

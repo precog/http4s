@@ -7,5 +7,7 @@ object StrictModeDisablePlugin extends AutoPlugin {
   override def requires = SbtPrecog
   override def trigger = allRequirements
 
-  override def projectSettings = Seq(scalacStrictMode := false)
+  override def projectSettings = Seq(
+    scalacStrictMode := false,
+    scalacOptions -= "-Xfatal-warnings")
 }
