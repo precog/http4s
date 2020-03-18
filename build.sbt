@@ -9,6 +9,8 @@ Global / cancelable := true
 ThisBuild / githubRepository := "http4s"
 Global / scalacStrictMode := false
 
+ThisBuild / trickleRepositoryURI := "https://github.com/precog/http4s"    // shouldn'ed be needed, but is, doesn't make sense
+
 lazy val modules: List[ProjectReference] = List(
   core,
   laws,
