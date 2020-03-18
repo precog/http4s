@@ -52,7 +52,7 @@ lazy val modules: List[ProjectReference] = List(
   examplesWar
 )
 
-lazy val root = project.disablePlugins(TricklePlugin).in(file("."))
+lazy val root = project.in(file("."))
   .enablePlugins(PrivateProjectPlugin)
   .settings(
     // Root project
@@ -572,9 +572,9 @@ def http4sProject(name: String) =
       Test / testOptions += Tests.Argument(TestFrameworks.Specs2, "showtimes", "failtrace"),
       initCommands()
     )
-    .disablePlugins(TricklePlugin)
 
-def libraryProject(name: String) = http4sProject(name).disablePlugins(TricklePlugin)
+
+def libraryProject(name: String) = http4sProject(name)
 
 def exampleProject(name: String) =
   http4sProject(name)
@@ -582,7 +582,7 @@ def exampleProject(name: String) =
     .enablePlugins(PrivateProjectPlugin)
     .settings(libraryDependencies += logbackClassic % "runtime")
     .dependsOn(examples)
-    .disablePlugins(TricklePlugin)
+
 
 lazy val commonSettings = Seq(
   http4sJvmTarget := scalaVersion.map {
