@@ -38,8 +38,8 @@ jobs:
         run: sbt ++$SCALA_VERSION scalafmtCheckAll
       - name: Compile
         run: sbt ++$SCALA_VERSION test:compile
-      - name: Check compatibility
-        run: sbt ++$SCALA_VERSION mimaReportBinaryIssues
+      # - name: Check compatibility
+        # run: sbt ++$SCALA_VERSION mimaReportBinaryIssues
       - name: Check unused dependencies
         run: sbt ++$SCALA_VERSION unusedCompileDependenciesTest
       - name: Test
