@@ -7,6 +7,7 @@ ThisBuild / scalaVersion := scala_213
 Global / cancelable := true
 
 ThisBuild / githubRepository := "http4s"
+Global / scalacStrictMode := false
 
 lazy val modules: List[ProjectReference] = List(
   core,

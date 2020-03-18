@@ -12,6 +12,8 @@ object HeaderDisablePlugin extends AutoPlugin {
   override def trigger = allRequirements
 
   override def projectSettings = Seq(
-    headerCreate := Iterable.empty,
-    headerCheck := Iterable.empty)   // override header creation to be nothing
+    Compile / headerCreate := Iterable.empty,
+    Test / headerCreate := Iterable.empty,
+    Compile / headerCheck := Iterable.empty,
+    Test / headerCheck := Iterable.empty)
 }
