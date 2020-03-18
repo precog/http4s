@@ -1,6 +1,5 @@
 package org.http4s.build
 
-import com.jsuereth.sbtpgp.PgpKeys.{publishLocalSigned, publishSigned}
 import com.typesafe.tools.mima.plugin.MimaPlugin
 import com.typesafe.tools.mima.plugin.MimaPlugin.autoImport._
 import explicitdeps.ExplicitDepsPlugin.autoImport._
@@ -16,9 +15,7 @@ object PrivateProjectPlugin extends AutoPlugin {
     Seq(
       publish / skip := true,
       publish := (()),
-      publishSigned := (()),
       publishLocal := (()),
-      publishLocalSigned := (()),
       publishArtifact := false,
       publishTo := None,
       Test / publishArtifact := false,
