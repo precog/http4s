@@ -81,7 +81,6 @@ object AsyncHttpClient {
       val dispose = F delay { state = State.ABORT }
 
       override def onStream(publisher: Publisher[HttpResponseBodyPart]): State = {
-        // backpressure is handled by requests to the reactive streams subscription
         val eff = for {
           subscriber <- StreamSubscriber[F, HttpResponseBodyPart]
 
