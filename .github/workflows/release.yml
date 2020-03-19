@@ -35,5 +35,6 @@ jobs:
       - name: Publish
         run: ./scripts/publishAndTag 'precog/http4s'
         env:
+          REPO_SLUG: ${{ github.repository }}
           SBT: sbt
 
