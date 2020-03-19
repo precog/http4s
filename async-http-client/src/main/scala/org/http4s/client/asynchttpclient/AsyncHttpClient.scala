@@ -78,14 +78,14 @@ object AsyncHttpClient {
     new StreamedAsyncHandler[Unit] {
       var state: State = State.CONTINUE
       var response: Response[F] = Response()
-      val dispose = F delay { state = State.ABORT }
+      val dispose = F.delay { state = State.ABORT }
 
       override def onStream(publisher: Publisher[HttpResponseBodyPart]): State = {
         val eff = for {
           subscriber <- StreamSubscriber[F, HttpResponseBodyPart]
 
           subscribeF = F.delay(publisher.subscribe(subscriber))
-          bodyDisposal <- Ref of[F, F[Unit]] {
+          bodyDisposal <- Ref.of[F, F[Unit]] {
             subscribeF >> subscriber.stream.take(0).compile.drain
           }
 
